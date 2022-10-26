@@ -3,6 +3,8 @@ class PessoaModel
 {
     public $id, $nome, $cpf, $data_nascimento;
 
+    public $rows;
+
     public function save()
     {
         include 'DAO/PessoaDAO.php';
@@ -10,5 +12,14 @@ class PessoaModel
         $dao = new PessoaDao();
 
         $dao->insert($this);
+    }
+
+    public function getAllRows()
+    {
+        include 'DAO/PessoaDAO.php';
+
+        $dao = new PessoaDAO();
+
+        $this->rows = $dao->select();
     }
 }

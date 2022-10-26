@@ -31,6 +31,11 @@ class PessoaDao
 
     public function select()
     {
+        $sql = "SELECT * FROM pessoa";
 
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 }

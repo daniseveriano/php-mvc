@@ -4,6 +4,11 @@ class PessoaController
 {
     public static function index()
     {
+        include 'Model/PessoaModel.php';
+
+        $model = new PessoaModel();
+        $model->getAllRows();
+        
         include 'View/modules/Pessoa/ListaPessoa.php';
     }
 
